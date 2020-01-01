@@ -1,0 +1,103 @@
+choreography: checkout-new-user
+steps:
+- name: new-user
+- name: email-verify-user
+- name: save-cart
+- name: email-remind-cart
+- name: subscribe-user
+- name: check-cart
+---
+microservice: user
+functions:
+- name: new-user
+  resource: /users
+  method: POST
+  inputs:
+      email: email
+      username: string
+      password: string
+  impl: |
+      import bcrypt
+      hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+      class User():
+        def __init__(self, email, username, password):
+            self.email = email  
+            self.username = username
+            self.password = password
+        def save(self):
+            print("Saved")
+      user = User(email, username, hashed_password)
+      user.save()
+      return make_response("", 200)
+---
+microservice: email
+functions:
+- name: verify-email
+  resource: /emails
+  method: POST
+  inputs:
+      template_name:
+          value: verify-email
+      email: email
+  impl: |
+      verify_email = Email(email, template_name)
+      verify_link = create_verify_link()
+      sender.send(email.render(verify_link))
+---
+microservice: cart
+functions:
+- name: save-cart
+  resource: /cart
+  method: POST
+  inputs:
+      username: string
+      cart_items: object
+  outputs:
+  - cart-id
+  impl: |
+    cart = Cart(cart_items)
+    cart.save()
+---
+microservice: email
+functions:
+- name: email-user
+  resource: /emails
+  method: POST
+  inputs:
+      email: email
+      template_name: cart-reminder
+  impl: |
+      email = Email(email, template_name)
+      email.render()
+      emailSender.send(email)
+---
+microservice: newsletter
+functions:
+- name: subscribe-user
+  resource: /newsletter/<newsletter>/users
+  method: POST
+  inputs:
+      newsletter: string
+      email: email
+      name: string
+  impl: |
+      newsletter = NewsletterUsers.get(newsletter)
+      newsletter.register_user(name, email)
+---
+microservice: stock
+functions:
+- name: check-cart
+  resource: /check
+  method: POST
+  inputs:
+      cart_id: cart-id
+  outputs:
+      in-stock: boolean
+  impl: |
+      cart = Cart.get_cart(cart)
+      in_stock = True
+      for item in cart.items:
+          stock_check = Stock.get_stock(item.name)
+          if stock_check.quantity < item.quantity:
+              in_stock = False
+      return in_stock
