@@ -103,7 +103,7 @@ From this we can generate:
 
  * **Microservice artifacts**
  * **Endpoints request handlers**
- * **Micorservice collaborations**
+ * **Microservice collaborations**
  
  # Microservice collaborations
  
