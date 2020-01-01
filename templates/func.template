@@ -1,0 +1,13 @@
+import flask_app
+from flask import request
+from flask import make_response
+
+@flask_app.app.route("{{ resource }}", methods=["{{ method }}"])
+def {{name }}(**kwargs):
+    json = request.get_json()
+    {% for item in inputs %}
+    {{item}} = json["{{ item}}"]
+    {% endfor %}
+{{ impl }}
+
+
