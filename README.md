@@ -1,5 +1,17 @@
 # microservice-description-compilation
 
+This repository is the idea that we can compile microservice artifacts from YAML files, from high level descriptions of what microservices do. From this high level view of a microservice we can generate:
+
+ * **Microservice artifacts**
+ * **Endpoints request handlers**
+ * **Microservice collaborations**
+ 
+ # Microservice collaborations
+ 
+ Who is responsible for orchestrating the choreography? Can the framework allow collaborative choreographies by passing additional information regarding the overall flow with the initial request.
+
+# Example
+
 See this example microservice definition:
 
 ```
@@ -99,15 +111,5 @@ functions:
   return in_stock
 ```
 
-From this we can generate:
 
- * **Microservice artifacts**
- * **Endpoints request handlers**
- * **Microservice collaborations**
- 
- # Microservice collaborations
- 
- Who is responsible for orchestrating the choreography? Can the framework allow collaborative choreographies by passing additional information regarding the overall flow with the initial request.
- 
- 
  
