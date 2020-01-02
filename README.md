@@ -12,7 +12,7 @@ This repository is the idea that we can compile microservices from YAML files an
 
 # Example 1 - choreography description model 1
 
-See this example microservice definition. This definition bundles the implementation of functions within its definition.
+See this example microservice definition of a choreography of a shopping website where you can create an account on checkout. This model has implementation of simple endpoints embedded in the definition, so it should be possible to generate a microservice with code generation.
 
 ```
 choreography: checkout-new-user
