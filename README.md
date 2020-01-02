@@ -1,6 +1,6 @@
 # microservice-description-compilation
 
-This repository is the idea that we can compile microservice artifacts from YAML files, from high level descriptions of what microservices do. From this high level view of a microservice we can generate:
+This repository is the idea that we can compile microservice artifacts from YAML files, from high level descriptions of what microservices do. I want to be able to take a monolithic repository written in a certain way and divide it up into microservices automatically. See [idea 82 from my list of ideas](https://github.com/samsquire/ideas#82-inline-http-microservice-compilation). From this high level view of a microservice we can generate:
 
  * **Microservice artifacts**
  * **Endpoints request handlers**
