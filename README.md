@@ -10,9 +10,9 @@ This repository is the idea that we can compile microservices from YAML files an
  * **Automatic request collaboration** Where one request fans out to multiple requests, we have control over who coordinates what. 
  
 
-# Example
+# Example 1 - choreography description model 1
 
-See this example microservice definition:
+See this example microservice definition. This definition bundles the implementation of functions within its definition.
 
 ```
 choreography: checkout-new-user
