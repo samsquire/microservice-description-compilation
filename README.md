@@ -1,10 +1,10 @@
 # microservice-description-compilation
 
-This repository is the idea that we can compile microservices from YAML files and a monolithic code base using high level descriptions of what the microservices do. I want to be able to take a monolithic repository written in a certain way and divide it up into microservices automatically. See [idea 82 from my list of ideas](https://github.com/samsquire/ideas#82-inline-http-microservice-compilation). From a sufficiently high level view of a microservice we can:
+This repository is the idea that we can compile microservices from YAML files and a specially written monolithic code base using high level descriptions of what each microservices does. I want to be able to take a monolithic repository written in a certain way and divide it up into microservices automatically. See [idea 82 from my list of ideas](https://github.com/samsquire/ideas#82-inline-http-microservice-compilation). From a sufficiently high level definition of microservices we can:
 
  * **Divide a codebase** If we have an accurate definition of X number of microservices and how to select the code that corresponds to a microservice, we can divide a codebase into codebases that are a subset of a monolithic codebase.
  * **Seam selection** If the seams between services are known, we can decide how services communicate with a communication layer, be it method calls, HTTP, database or some RPC
- * **Stem cell servers** A server starts up and decides what service to be and has the code available for all microservices. 
+ * **Stem cell servers** If we bundle code for all microservices together, we can specialise on start-up. A server starts up and decides what service to be and has the code available for all microservices. 
  * **Microservice artifacts** Generate JAR files or python packages or equivalent artifact of a microservice
  * **Endpoints request handlers** Fill in the service handlers with code from the description
  * **Automatic request collaboration** Where one request fans out to multiple requests, we have control over who coordinates what. 
