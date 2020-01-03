@@ -10,9 +10,14 @@ This repository is the idea that we can compile microservices from YAML files an
  * **Automatic request collaboration** Where one request fans out to multiple requests, we have control over who coordinates what. 
  
 
-# Example 1 - choreography description model 1
+# Example - choreography description model 1
 
 See this example microservice definition of a choreography of a shopping website where you can create an account on checkout. This model has implementation of simple endpoints embedded in the definition, so it should be possible to generate a microservice with code generation.
+
+This flow is called **checkout-new-user** and is the endpoint that would be POSTed to. This endpoint is then responsible for beginning a workflow with the remaining microservices. I see the following options:
+
+* **Generate finish event handlers** Assuming a message queue is being used, we could have a pattern where each microservice knows that they have to raise an event when they have completed a task. The checkout-new-user registers event handlers for these finish events in order to coordinate the remainder of the workflow.
+* **Background task queue**
 
 ```
 choreography: checkout-new-user
