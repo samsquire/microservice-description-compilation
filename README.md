@@ -140,11 +140,8 @@ choreography: user-search-postcode
 steps:
 - lookup-nearest-restaurants
 seams:
-- name: user-search-postcode/lookup-nearest-restaurants
-  from: app
+- name: user-search-postcode; app->restaurants_search
   kind: REST
-  destination: search_restaurants
-
 ---
 choreography: app-open
 steps:
@@ -152,13 +149,13 @@ steps:
 - download-special-offers
 - download-top-restaurants
 seams:
-- name: app-open/download-menu-categories
+- name: download-menu-categories; app->widget_server
   kind: REST
   destination: widget_server
-- name: app-open/download-special-offers
+- name: download-special-offers; app->widget_server
   kind: REST
   destination: widget_server
-- name: app-open/download-top-restaurants
+- name: download-top-restaurants; app->widget_server
   kind: REST
   destination: widget_server
 ---
