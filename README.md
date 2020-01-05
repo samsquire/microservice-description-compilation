@@ -117,6 +117,82 @@ functions:
   return in_stock
 ```
 
+# Seam configuration
+
+```
+description: an online food delivery service
+---
+choreography: place-order
+steps:
+- contact-restaurant
+- collect-payment
+seams:
+- name: contact-restaurant; app -> orders
+  kind: REST
+- name: contact-restaurant; orders -> restaurant_side
+  kind: mq
+- name: collect-payment; app -> payments
+  kind: REST
+- name: collect-payment; payments -> payments_upstream
+  kind: mq
+---
+choreography: user-search-postcode
+steps:
+- lookup-nearest-restaurants
+seams:
+- name: user-search-postcode/lookup-nearest-restaurants
+  from: app
+  kind: REST
+  destination: search_restaurants
+
+---
+choreography: app-open
+steps:
+- download-menu-categories
+- download-special-offers
+- download-top-restaurants
+seams:
+- name: app-open/download-menu-categories
+  kind: REST
+  destination: widget_server
+- name: app-open/download-special-offers
+  kind: REST
+  destination: widget_server
+- name: app-open/download-top-restaurants
+  kind: REST
+  destination: widget_server
+---
+microservice: offers
+package: com.services.offers
+---
+microservice: widget_server
+package: com.services.widget_server
+---
+microservice: restaurants
+package: com.services.restaurants
+---
+microservice: menus
+package: com.services.menus
+---
+microservice: orders
+package: com.services.orders
+---
+microservice: restaurant_side
+package: com.services.restaurant_side
+---
+microservice: payments
+package: com.services.payments
+---
+microservice: payments_upstream
+package: com.services.payments_upstream
+---
+microservice: search_restaurants
+package: com.services.search_restaurants
+---
+microservice: search_menus
+package: com.services.search_menus
+```
+
  # Microservice collaborations
  
  Who is responsible for orchestrating the choreography? Can the framework allow collaborative choreographies by passing additional information regarding the overall flow with the initial request.
