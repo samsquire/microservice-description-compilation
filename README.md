@@ -11,7 +11,7 @@ This repository is the idea that we can compile microservices from YAML files an
  * **Automatic request collaboration** Where one request fans out to multiple requests, we have control over who coordinates what. 
  
 
-# Example - choreography description model 1
+# Example 1 - choreography description model
 
 See this example microservice definition of a choreography of a shopping website where you can create an account on checkout. This model has implementation of simple endpoints embedded in the definition, so it should be possible to generate a microservice with code generation.
 
@@ -117,7 +117,7 @@ functions:
   return in_stock
 ```
 
-# Seam configuration
+# Example 2 - Seam configuration model
 
 ```
 description: an online food delivery service
