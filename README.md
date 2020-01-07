@@ -18,8 +18,7 @@ See this example microservice definition of a choreography of a shopping website
 
 This flow is called **checkout-new-user** and is the endpoint that would be POSTed to. This endpoint is then responsible for beginning a workflow with the remaining microservices. I see the following options:
 
-* **Generate finish event handlers** Assuming a message queue is being used, we could have a pattern where each microservice knows that they have to raise an event when they have completed a task. The checkout-new-user registers event handlers for these finish events in order to coordinate the remainder of the workflow.
-* **Background task queue** Enqueue each task on a worker queue - how to maintain ordering?
+* **Generate finish event handlers** Assuming a message queue is being used, we could have a pattern where each microservice knows that they have to raise an event when they have completed a task. Either an orchestrator process monitors the state of the flow or all services are aware of what event must happen next.
 
 ```
 choreography: checkout-new-user
