@@ -11,7 +11,7 @@ This repository is the idea that we can compile microservices from YAML files an
  * **Microservice artifacts** Generate JAR files or python packages or equivalent artifact of a microservice
  * **Endpoints request handlers** Fill in the service handlers with code from the description
  * **Automatic request collaboration** Where one request fans out to multiple requests, we have control over who coordinates what. 
- 
+ * **Communication libraries** Provide libraries for communicating between microservices.
 
 # Example 1 - choreography description model
 
