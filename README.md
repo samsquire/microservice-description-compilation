@@ -12,6 +12,7 @@ This repository is the idea that we can compile microservices from YAML files an
  * **Endpoints request handlers** Fill in the service handlers with code from the description
  * **Automatic request collaboration** Where one request fans out to multiple requests, we have control over who coordinates what. 
  * **Communication libraries** Provide libraries for communicating between microservices.
+* **Runtime configuration** If configuration is dynamic while the servers are running, we can configure the service mesh at run time.
 
 # Example 1 - choreography description model
 
