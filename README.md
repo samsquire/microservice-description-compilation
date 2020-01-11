@@ -153,13 +153,10 @@ steps:
 seams:
 - name: download-menu-categories; app->widget_server
   kind: REST
-  destination: widget_server
 - name: download-special-offers; app->widget_server
   kind: REST
-  destination: widget_server
 - name: download-top-restaurants; app->widget_server
   kind: REST
-  destination: widget_server
 ---
 microservice: offers
 package: com.services.offers
