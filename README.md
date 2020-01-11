@@ -5,7 +5,7 @@ This repository is the idea that we can compile microservices from YAML files an
 * **Choreography definition** Define a set of functions to call in order. Let the framework decide how they are called
  * **Divide a codebase** If we have an accurate definition of X number of microservices and how to select the code that corresponds to a microservice, we can divide a codebase into codebases that are a subset of a monolithic codebase. The monolithic codebase remains the source of truth for the system.
  * **Seam selection** If the seams between services are known, we can decide how services communicate with a communication layer, be it method calls, HTTP, database, MQ or some RPC
- * **Dynamic seam selection** When containers are on the same host, we could use an IPC method that works on the same machine, such as domain sockets.
+ * **Dynamic seam selection** Seams can change dynamically. When containers are on the same host, we could use an IPC method that works on the same machine, such as domain sockets.
  * **Implicit versus explicit communication** Some services do not call each other directly but via subscriptions to generic events.
  * **Stem cell servers** If we bundle code for all microservices together, we can specialise on start-up. A server starts up and decides what service to be and has the code available for all microservices. 
  * **Microservice artifacts** Generate JAR files or python packages or equivalent artifact of a microservice
