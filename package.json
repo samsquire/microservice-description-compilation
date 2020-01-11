@@ -1,0 +1,24 @@
+{
+  "name": "microservice-description-compilation",
+  "version": "0.0.1",
+  "description": "Decoupled microservice communication",
+  "main": "example.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samsquire/microservice-description-compilation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samsquire/microservice-description-compilation/issues"
+  },
+  "homepage": "https://github.com/samsquire/microservice-description-compilation#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "request": "^2.88.0"
+  }
+}
