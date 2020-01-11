@@ -191,8 +191,8 @@ microservice: search_menus
 package: com.services.search_menus
 ```
 
- # Microservice collaborations
- 
- Who is responsible for orchestrating the choreography? Can the framework allow collaborative choreographies by passing additional information regarding the overall flow with the initial request.
+# Microservice collaborations - How do microservices collaborate to carry out a complicated workflow?
+
+If the definition is loaded by all microservices, perhaps over the network at runtime, all services know what to do according to a given event. All services collaborate to make sure the correct service gets called.
 
  
