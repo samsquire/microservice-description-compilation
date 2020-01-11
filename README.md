@@ -121,6 +121,14 @@ functions:
 
 # Example 2 - Seam configuration model
 
+The seam configuration is in the format "choreography-step; source -> destination". This can be read as, during the choreography step, communication from service X to service Y should be of this kind.
+
+Kinds of communication between seams should be one of the following:
+
+* **REST** Restful API, posting of resources at URLs
+* **mq** MQ event based
+* **methodcall** synchronous execution of another microservice from the same container
+
 ```
 description: an online food delivery service
 ---
