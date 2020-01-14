@@ -11,8 +11,8 @@ This repository is the idea that we can compile microservices from YAML files an
  * **Microservice artifacts** Generate JAR files or python packages or equivalent artifact of a microservice
  * **Endpoints request handlers** Fill in the service handlers with code from the description
  * **Automatic request collaboration** Where one request fans out to multiple requests, we have control over who coordinates what. 
- * **Communication libraries** Provide libraries for communicating between microservices.
-* **Runtime configuration** If configuration is dynamic while the servers are running, we can configure the service mesh at run time.
+ * **Communication libraries** We need a library for generic communication between systems. This library should capture standard patterns for communication such as the need to request a piece of information, or send a message and wait for a response. Provide libraries for communicating between microservices.
+ * **Runtime configuration** If configuration is dynamic while the servers are running, we can configure the service mesh at run time.
 
 # Example 1 - choreography description model
 
